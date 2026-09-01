@@ -1,11 +1,14 @@
 from flask import Flask, jsonify
 import json
+from pathlib import Path
 
 app = Flask(__name__)
 
-with open("instituicoesensino.json", "r", encoding="utf-8") as arquivo:
-    instituicoes = json.load(arquivo)
+BASE_DIR = Path(__file__).resolve().parent
+ARQUIVO_JSON = BASE_DIR / "instituicoesEnsino.json"
 
+with open(ARQUIVO_JSON, "r", encoding="utf-8") as arquivo:
+    instituicoes = json.load(arquivo)
 
 @app.get("/")
 def index():
@@ -17,7 +20,7 @@ def index():
 
 
 @app.get("/instituicoesensino")
-def instituicoesensino():
+def instituicoesensino():   
     return jsonify(instituicoes), 200
 
 
