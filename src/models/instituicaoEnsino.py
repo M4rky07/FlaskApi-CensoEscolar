@@ -69,4 +69,30 @@ class InstituicaoEnsino:
             "qt_mat_eja": self.qt_mat_eja,
             "qt_mat_esp": self.qt_mat_esp
         }
-print(instituicao.no_entidade)
+
+
+    @classmethod
+    def from_dict(cls, dados):
+        return cls(
+            dados["no_entidade"],
+            dados["co_entidade"],
+            dados["no_uf"],
+            dados["sg_uf"],
+            dados["co_uf"],
+            dados["no_municipio"],
+            dados["co_municipio"],
+            dados["no_mesorregiao"],
+            dados["co_mesorregiao"],
+            dados["no_microrregiao"],
+            dados["co_microrregiao"],
+            dados["nu_ano_censo"],
+            dados["no_regiao"],
+            dados["co_regiao"],
+            dados["qt_mat_bas"],
+            dados["qt_mat_inf"],
+            dados["qt_mat_fund"],
+            dados["qt_mat_med"],
+            dados["qt_mat_prof"],
+            dados["qt_mat_eja"],
+            dados["qt_mat_esp"]
+        )
